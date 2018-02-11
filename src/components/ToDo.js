@@ -68,13 +68,13 @@ export class ToDo extends Component {
     const { items } = this.state;
     return (
       <div className="todo">
-        <button onClick={this.clearAll}>clear localStorage</button>
+        <button className="btn" onClick={this.clearAll}>clear localStorage</button>
         <form className="todo__form" onSubmit={this.submitAddTask}>
-          <input ref={input => (this.input = input)} type="text" />
-          <input type="submit" value="Add" />
+          <input placeholder="What do I need to do?" className="form_input" ref={input => (this.input = input)} type="text" />
+          <input className="btn" type="submit" value="Add Task" />
         </form>
         <div className="todo__list">
-          Do it:
+          <h1>Just do it: </h1>
           <div className="todo__list_map">
             <ul>
               {items.map(item => {
