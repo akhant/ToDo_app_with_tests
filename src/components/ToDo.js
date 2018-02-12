@@ -3,17 +3,17 @@ import ToDoItem from "./ToDoItem";
 
 export class ToDo extends Component {
   state = {
-    items:
-      JSON.parse(localStorage.getItem("items")) !== null
+    items: []
+      /* JSON.parse(localStorage.getItem("items")) !== null
         ? JSON.parse(localStorage.getItem("items"))
-        : []
+        : [] */
   };
 
-  saveLS = () => {
+  /* saveLS = () => {
     setTimeout(() => {
       localStorage.setItem("items", JSON.stringify(this.state.items));
     }, 0);
-  };
+  }; */
 
   submitAddTask = e => {
     e.preventDefault();
@@ -31,7 +31,7 @@ export class ToDo extends Component {
     });
     this.input.value = "";
     console.log(this.state.items);
-    this.saveLS();
+    /* this.saveLS(); */
   };
 
   completed = id => {
@@ -43,7 +43,7 @@ export class ToDo extends Component {
         return item;
       })
     });
-    this.saveLS();
+    /* this.saveLS(); */
   };
 
   removeItem = id => {
@@ -52,7 +52,7 @@ export class ToDo extends Component {
         return item.id !== id;
       })
     });
-    this.saveLS();
+    /* this.saveLS(); */
   };
 
   clearAll = () => {
@@ -61,14 +61,14 @@ export class ToDo extends Component {
         return item.length < 0;
       })
     });
-    localStorage.removeItem("items");
+    /* localStorage.removeItem("items"); */
   };
 
   render() {
     const { items } = this.state;
     return (
       <div className="todo">
-        <button className="btn" onClick={this.clearAll}>clear localStorage</button>
+        <button className="btn" onClick={this.clearAll}>clear</button>
         <form className="todo__form" onSubmit={this.submitAddTask}>
           <input placeholder="What do I need to do?" className="form_input" ref={input => (this.input = input)} type="text" />
           <input className="btn" type="submit" value="Add Task" />

@@ -9,7 +9,7 @@ export class ToDoItem extends Component {
       const {item, completed, removeItem} = this.props
     return (
       <li  >
-      <span className="item" onClick={() => completed(item.id)} className={item.done ? "done" : '' } >
+      <span onClick={() => completed(item.id)} className={item.done ? "done" : '' } >
         {item.text}
       </span>
       <span className="closeItem" onClick={() => removeItem(item.id)} >
